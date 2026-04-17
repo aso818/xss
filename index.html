@@ -1,3 +1,13 @@
-window.post("http://chat/chatResult", JSON.stringify({
-  message: "/tx"
-}));
+<script>
+window.onload = () => {
+  fetch(`https://${GetParentResourceName()}/chatResult`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8"
+    },
+    body: JSON.stringify({
+      message: "/tx"
+    })
+  });
+};
+</script>
