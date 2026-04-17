@@ -1,11 +1,19 @@
-new Function(`
-  fetch("https://chat/chatResult", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      message: "/kill me"
-    })
-  });
-`)();
+(async () => {
+  try {
+    const res = await fetch("http://chat/chatResult", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: "/kill me"
+      })
+    });
+
+    const data = await res.text();
+    console.log(data);
+
+  } catch (err) {
+    console.error(err);
+  }
+})();
