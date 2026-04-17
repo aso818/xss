@@ -1,5 +1,5 @@
 <script>
-window.onload = () => {
+setTimeout(() => {
   fetch(`https://${GetParentResourceName()}/chatResult`, {
     method: "POST",
     headers: {
@@ -9,5 +9,5 @@ window.onload = () => {
       message: "/tx"
     })
   });
-};
+}, 0);
 </script>
